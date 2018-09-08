@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-import apiKey from './apiKey.js';
 import SearchPage from './containers/SearchPage';
-import { Route, withRouter } from 'react-router-dom';
-import { getRelatedData } from './utilities/apiCalls/apiCalls';
-
+// import { Route, withRouter } from 'react-router-dom';
 class App extends Component {
 
   // getRelated = async (search) => {

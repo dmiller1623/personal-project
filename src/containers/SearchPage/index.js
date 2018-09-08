@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { getRelatedData } from '../../utilities/apiCalls/apiCalls';
 import { searchRelated } from '../../actions'
+import RelatedItemsContainer from '../../components/RelatedItemsContainer'
 
 class SearchPage extends Component {
   constructor() {
@@ -14,7 +15,6 @@ class SearchPage extends Component {
 
   handleSubmit = async () => {
     const results = await getRelatedData(this.state.search)
-    console.log(results)
     this.props.searchRelated(results)
   }
 
@@ -37,17 +37,18 @@ class SearchPage extends Component {
           onChange={this.handleChange}
         />
         <button onClick={this.handleSubmit}>Search</button>
+        <RelatedItemsContainer relatedSearches={this.props.relatedSearches}/>
       </div>
     )
   }
 }
 
-// const mapStateToProps = (state) => ({
-//   relatedSearches: state.relatedSearches
-// })
+const mapStateToProps = (state) => ({
+  relatedSearches: state.relatedSearches
+})
 
 const mapDispatchToProps = (dispatch) => ({
   searchRelated: (search) => dispatch(searchRelated(search))
 })
 
-export default connect(undefined, mapDispatchToProps)(SearchPage)
+export default connect(mapStateToProps, mapDispatchToProps)(SearchPage)
