@@ -36,7 +36,7 @@ class SearchPage extends Component {
           name='search'
           onChange={this.handleChange}
         />
-        <button onClick={this.handleSubmit}>Search</button>
+        <button onClick={this.handleSubmit}>Searchs</button>
         <RelatedItemsContainer relatedSearches={this.props.relatedSearches}/>
       </div>
     )
