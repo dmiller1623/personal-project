@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { getRelatedData } from '../../utilities/apiCalls/apiCalls';
-import { searchRelated } from '../../actions'
+import { searchRelated, addToResources } from '../../actions'
 import RelatedItemsContainer from '../../components/RelatedItemsContainer'
 
 class SearchPage extends Component {
@@ -15,6 +15,7 @@ class SearchPage extends Component {
 
   handleSubmit = async () => {
     const results = await getRelatedData(this.state.search)
+    console.log(results)
     this.props.searchRelated(results)
   }
 
@@ -22,6 +23,10 @@ class SearchPage extends Component {
     const { name, value } = event.target
     this.setState({ [name]: value })
   }
+
+  addResources = (resource) => {
+    this.props.addToResources(resource)
+  } 
 
   render() {
     return(
@@ -37,7 +42,7 @@ class SearchPage extends Component {
           onChange={this.handleChange}
         />
         <button onClick={this.handleSubmit}>Searchs</button>
-        <RelatedItemsContainer relatedSearches={this.props.relatedSearches}/>
+        <RelatedItemsContainer relatedSearches={this.props.relatedSearches} addResources={this.addResources}/>
       </div>
     )
   }
@@ -48,7 +53,8 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  searchRelated: (search) => dispatch(searchRelated(search))
+  searchRelated: (search) => dispatch(searchRelated(search)),
+  addToResources: (resourceId) => dispatch(addToResources(resourceId))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(SearchPage)

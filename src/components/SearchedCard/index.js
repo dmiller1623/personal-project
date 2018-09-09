@@ -1,14 +1,17 @@
 import React from 'react'
+// import { addToResources } from '../../actions';
 
-const SearchedCard = ({ Name, Type, wTeaser, wUrl, yID, yUrl }) => {
+const SearchedCard = (props) => {
   return (
     <div>
-      <h2>{Type}</h2>
-      <h2>{Name}</h2>
-      <h2>{wTeaser}</h2>
-      <h2>{wUrl}</h2>
-      <h2>{yID}</h2>
-      <h2>{yUrl}</h2>
+      <article className='searhced-card' onClick={() => props.addResources(props)}>
+        <h2>{props.Type}</h2>
+        <h2>{props.Name}</h2>
+        <h2>{props.wTeaser}</h2>
+        <h2>{props.wUrl}</h2>
+        <h2>{props.yID}</h2>
+        <h2>{props.yUrl}</h2>
+      </article>
     </div>
   )
 }

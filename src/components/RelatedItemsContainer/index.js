@@ -1,11 +1,12 @@
 import React from 'react'
 import SearchedCard from '../../components/SearchedCard'
 
-const RelatedItemsContainer = (items) => {
-    const displayItems = items.relatedSearches.map((item, index) => {
+const RelatedItemsContainer = ({ relatedSearches, addResources }) => {
+  const displayItems = relatedSearches.map((item, index) => {
       return <SearchedCard 
       {...item}
       key={index}
+      addResources={addResources}
       />
     })
 
@@ -16,6 +17,4 @@ const RelatedItemsContainer = (items) => {
     )
   }
   
-
-
 export default RelatedItemsContainer
