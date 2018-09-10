@@ -3,8 +3,11 @@ import { connect } from 'react-redux';
 import { getRelatedData } from '../../utilities/apiCalls/apiCalls';
 import { searchRelated, addToResources } from '../../actions'
 import RelatedItemsContainer from '../../components/RelatedItemsContainer'
+import { NavLink } from 'react-router-dom';
+import './styles.css'
 
-class SearchPage extends Component {
+
+export class SearchPage extends Component {
   constructor() {
     super();
     this.state = {
@@ -15,7 +18,6 @@ class SearchPage extends Component {
 
   handleSubmit = async () => {
     const results = await getRelatedData(this.state.search)
-    console.log(results)
     this.props.searchRelated(results)
   }
 
@@ -25,12 +27,22 @@ class SearchPage extends Component {
   }
 
   addResources = (resource) => {
-    this.props.addToResources(resource)
+    let additionalResourcesNames = this.props.additionalResources.map(resource => resource.Name)
+    if(additionalResourcesNames.includes(resource.Name)) {
+      return 
+    } else {
+
+      this.props.addToResources(resource)
+    }
   } 
 
   render() {
     return(
-      <div className="dropdown">
+      <div className="search-page">
+        <header className='header'>
+          <h1>Search Resources</h1>
+        </header>
+       <div>
         <input className='subject-search'
           type='text'
           name='subject'
@@ -41,18 +53,25 @@ class SearchPage extends Component {
           name='search'
           onChange={this.handleChange}
         />
-        <button onClick={this.handleSubmit}>Searchs</button>
+        <button onClick={this.handleSubmit}>Search</button>
+        {/* <NavLink activeClassName='selected' className='initialBtns' to='/login'> */}
+
+        <NavLink to='/selectedResources'>View Slected Resources</NavLink>
+      </div>
+      <div className='searched-cards'>
         <RelatedItemsContainer relatedSearches={this.props.relatedSearches} addResources={this.addResources}/>
+      </div>
       </div>
     )
   }
 }
 
-const mapStateToProps = (state) => ({
-  relatedSearches: state.relatedSearches
+export const mapStateToProps = (state) => ({
+  relatedSearches: state.relatedSearches,
+  additionalResources: state.additionalResources
 })
 
-const mapDispatchToProps = (dispatch) => ({
+export const mapDispatchToProps = (dispatch) => ({
   searchRelated: (search) => dispatch(searchRelated(search)),
   addToResources: (resourceId) => dispatch(addToResources(resourceId))
 })

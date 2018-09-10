@@ -1,22 +1,25 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
+// import React, { Component } from 'react'
+// import { connect } from 'http2';
+// import { mapStateToProps, mapDispatchToProps } from 'react-redux';
+// import SelectedItemsContainer from '../../components/SelectedItemsContainer'
 
-class SelectedItem extends Component {
-  render() {
-    return (
-      <div>
+// class SelectedItems extends Component{
+//   constructor() {
+//     super();
+//   }
 
-      </div>
-    )
-  }
-}
+//   render() {
+//     const { additionalResources } = this.props
+//     return(
+//       <div>
+//         <SelectedItemsContainer additionalResources={additionalResources}/>
+//       </div>
+//     )
+//   }
+// }
 
-const mapDispatchToProps = () => ({
+// export const mapStateToProps = (state) => ({
+//   additionalResources: state.additionalResources
+// })
 
-})
-
-const mapStateToProps = () => {
-  
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(SelectedItem)
+// export default connect(mapStateToProps, mapDispatchToProps)(SelectedItems)

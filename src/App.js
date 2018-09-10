@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import SearchPage from './containers/SearchPage';
-// import { Route, withRouter } from 'react-router-dom';
+import { Route, withRouter } from 'react-router-dom';
+import SelectedItemsContainer from './components/SelectedItemsContainer'
 class App extends Component {
 
   // getRelated = async (search) => {
@@ -11,11 +12,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {/* <Route exact path = '/searchpage' component={SearchPage} /> */}
-        <SearchPage getRelated={this.getRelated}/>
+        <Route exact path = '/' component={SearchPage} />
+        <Route exact path = '/selectedResources' component={SelectedItemsContainer} />
+        {/* <SearchPage /> */}
       </div>
     );
   }
 }
 
-export default App;
+export default withRouter(App);
