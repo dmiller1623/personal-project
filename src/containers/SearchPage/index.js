@@ -4,7 +4,7 @@ import { getRelatedData } from '../../utilities/apiCalls/apiCalls';
 import { searchRelated, addToResources } from '../../actions'
 import RelatedItemsContainer from '../../components/RelatedItemsContainer'
 
-class SearchPage extends Component {
+export class SearchPage extends Component {
   constructor() {
     super();
     this.state = {
@@ -15,7 +15,6 @@ class SearchPage extends Component {
 
   handleSubmit = async () => {
     const results = await getRelatedData(this.state.search)
-    console.log(results)
     this.props.searchRelated(results)
   }
 
@@ -41,18 +40,18 @@ class SearchPage extends Component {
           name='search'
           onChange={this.handleChange}
         />
-        <button onClick={this.handleSubmit}>Searchs</button>
+        <button onClick={this.handleSubmit}>Search</button>
         <RelatedItemsContainer relatedSearches={this.props.relatedSearches} addResources={this.addResources}/>
       </div>
     )
   }
 }
 
-const mapStateToProps = (state) => ({
+export const mapStateToProps = (state) => ({
   relatedSearches: state.relatedSearches
 })
 
-const mapDispatchToProps = (dispatch) => ({
+export const mapDispatchToProps = (dispatch) => ({
   searchRelated: (search) => dispatch(searchRelated(search)),
   addToResources: (resourceId) => dispatch(addToResources(resourceId))
 })
