@@ -1,0 +1,27 @@
+.searched-card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-info {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.card-title {
+  display: flex;
+  justify-content: center;
+}
+
+.card-description {
+  width: 65%;
+  display: flex;
+}
+
+.card-links {
+  width: 35%;
+  flex-direction: column;
+  display: flex;
+}

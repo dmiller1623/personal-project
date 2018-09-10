@@ -3,6 +3,9 @@ import { connect } from 'react-redux';
 import { getRelatedData } from '../../utilities/apiCalls/apiCalls';
 import { searchRelated, addToResources } from '../../actions'
 import RelatedItemsContainer from '../../components/RelatedItemsContainer'
+import { NavLink } from 'react-router-dom';
+import './styles.css'
+
 
 export class SearchPage extends Component {
   constructor() {
@@ -28,13 +31,18 @@ export class SearchPage extends Component {
     if(additionalResourcesNames.includes(resource.Name)) {
       return 
     } else {
+
       this.props.addToResources(resource)
     }
   } 
 
   render() {
     return(
-      <div className="dropdown">
+      <div className="search-page">
+        <header className='header'>
+          <h1>Search Resources</h1>
+        </header>
+       <div>
         <input className='subject-search'
           type='text'
           name='subject'
@@ -46,7 +54,13 @@ export class SearchPage extends Component {
           onChange={this.handleChange}
         />
         <button onClick={this.handleSubmit}>Search</button>
+        {/* <NavLink activeClassName='selected' className='initialBtns' to='/login'> */}
+
+        <NavLink to='/selectedResources'>View Slected Resources</NavLink>
+      </div>
+      <div className='searched-cards'>
         <RelatedItemsContainer relatedSearches={this.props.relatedSearches} addResources={this.addResources}/>
+      </div>
       </div>
     )
   }

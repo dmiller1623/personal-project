@@ -10,6 +10,8 @@ describe('SearchPage', () => {
     expect(wrapper).toMatchSnapshot()
   })
 
+  it('should call ')
+
   describe('mapStateToProps', () => {
     it('should return an array of related items', () => {
       const mockState = {
@@ -20,6 +22,7 @@ describe('SearchPage', () => {
       const expected = {
         relatedSearches: []
       }
+
       const mappedProps = mapStateToProps(mockState);
       expect(mappedProps).toEqual(expected);
     })
