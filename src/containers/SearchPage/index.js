@@ -24,7 +24,12 @@ export class SearchPage extends Component {
   }
 
   addResources = (resource) => {
-    this.props.addToResources(resource)
+    let additionalResourcesNames = this.props.additionalResources.map(resource => resource.Name)
+    if(additionalResourcesNames.includes(resource.Name)) {
+      return 
+    } else {
+      this.props.addToResources(resource)
+    }
   } 
 
   render() {
@@ -48,7 +53,8 @@ export class SearchPage extends Component {
 }
 
 export const mapStateToProps = (state) => ({
-  relatedSearches: state.relatedSearches
+  relatedSearches: state.relatedSearches,
+  additionalResources: state.additionalResources
 })
 
 export const mapDispatchToProps = (dispatch) => ({
