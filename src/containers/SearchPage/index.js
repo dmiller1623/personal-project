@@ -42,26 +42,26 @@ export class SearchPage extends Component {
         <header className='header'>
           <h1>Search Resources</h1>
         </header>
-       <div>
-        <input className='subject-search'
+        <div>
+          <input className='subject-search'
           type='text'
           name='subject'
           onChange={this.handleChange}
-        />
-        <input className='search'
+          />
+          <input className='search'
           type='text'
           name='search'
           onChange={this.handleChange}
-        />
+          />
         <button onClick={this.handleSubmit}>Search</button>
         {/* <NavLink activeClassName='selected' className='initialBtns' to='/login'> */}
 
-        <NavLink to='/selectedResources'>View Slected Resources</NavLink>
+        <NavLink to='/selectedResources'>View Selected Resources</NavLink>
       </div>
       <div className='searched-cards'>
         <RelatedItemsContainer relatedSearches={this.props.relatedSearches} addResources={this.addResources}/>
       </div>
-      </div>
+    </div>
     )
   }
 }

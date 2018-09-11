@@ -1,7 +1,13 @@
 .searched-card {
-  width: 100%;
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  background-color: #E4E4E1;
+  background-image: radial-gradient(at top center, rgba(255, 255, 255, 0.03) 0%, rgba(0, 0, 0, 0.03) 100%), linear-gradient(to top, rgba(255, 255, 255, 0.1) 0%, rgba(143, 152, 157, 0.6) 100%);
+  background-blend-mode: normal, multiply;
+  height: 20rem;
+  margin: 1rem;
+  border-radius: 15px;
+  padding: .2rem .6rem; }
 
 .card-info {
   width: 100%;
@@ -20,3 +26,10 @@
   width: 35%;
   flex-direction: column;
   display: flex; }
+
+h2 {
+  color: black;
+  font-weight: bold; }
+
+p {
+  color: black; }

@@ -3,13 +3,13 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
-  min-height: 100vh;
+  // min-height: 100vh;
 }
 
 .searched-cards {
+  overflow: scroll;
   flex-wrap: wrap;
   display: flex;
   width: 80%;
-  // min-height: 100vh;
-  background-color: blue;
+  height: 100vh;
 }
