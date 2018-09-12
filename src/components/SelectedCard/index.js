@@ -3,7 +3,7 @@ import React from 'react'
 const SelectedCard = (props) => {
   return (
   <div>
-    <article className='searched-card'>
+    <article className='searched-card' onClick={() => props.deleteResources(props)}>
       <div className='card-title'>
         <h2>{props.Type}</h2>
         <h2>{props.Name}</h2>
@@ -18,7 +18,6 @@ const SelectedCard = (props) => {
         </div>
       </div>
     </article>
-    <button>Submit for QR Code</button>
   </div>
   )
 }
