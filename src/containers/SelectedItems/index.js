@@ -1,25 +1,36 @@
-// import React, { Component } from 'react'
-// import { connect } from 'http2';
-// import { mapStateToProps, mapDispatchToProps } from 'react-redux';
-// import SelectedItemsContainer from '../../components/SelectedItemsContainer'
+import React, { Component } from 'react'
+import { connect } from 'react-redux';
+import SelectedItemsContainer from '../../components/SelectedItemsContainer'
+import { removeResource } from '../../actions'
 
-// class SelectedItems extends Component{
-//   constructor() {
-//     super();
-//   }
+class SelectedItems extends Component{
 
-//   render() {
-//     const { additionalResources } = this.props
-//     return(
-//       <div>
-//         <SelectedItemsContainer additionalResources={additionalResources}/>
-//       </div>
-//     )
-//   }
-// }
+  deleteResources = (resource) => {
+    const resourceNames = this.props.additionalResources.map(resource => resource.Name)
+    if(resourceNames.includes(resource.Name)) {
+       let additionalResources = this.props.additionalResources.filter(name => {
+        return name !== resource.Name
+      })
+      this.props.removeResource(additionalResources)
+    } 
+  }
 
-// export const mapStateToProps = (state) => ({
-//   additionalResources: state.additionalResources
-// })
+  render() {
+    const { additionalResources } = this.props
+    return(
+      <div>
+        <SelectedItemsContainer additionalResources={additionalResources} deleteResources={this.deleteResources}/>
+      </div>
+    )
+  }
+}
 
-// export default connect(mapStateToProps, mapDispatchToProps)(SelectedItems)
+export const mapStateToProps = (state) => ({
+  additionalResources: state.additionalResources
+})
+
+export const mapDispatchToProps = (dispatch) => ({
+  removeResource: (resource) => dispatch(removeResource(resource))
+})
+
+export default connect(mapStateToProps)(SelectedItems)

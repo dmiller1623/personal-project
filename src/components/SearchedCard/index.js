@@ -1,14 +1,14 @@
 import React from 'react'
 import './styles.css'
-// import { addToResources } from '../../actions';
+import addSvg from '../../images/plus.svg'
 
 const SearchedCard = (props) => {
   return (
-    <article className='searched-card' onClick={() => props.addResources(props)}>
+    <article className='searched-card'>
       <div className='card-title'>
-        <h2>{props.Type}</h2>
+        <h2>{props.Type}:</h2>
         <h2>{props.Name}</h2>
-        <button>add</button>
+        <img src={addSvg} className='add-button' alt='add button svg' onClick={() => props.addResources(props)}/>
       </div>
       <div className='card-info'>
         <div className='card-description'> 

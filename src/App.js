@@ -3,8 +3,9 @@ import './App.css';
 import SearchPage from './containers/SearchPage';
 import { connect } from 'react-redux'
 import { Route, withRouter } from 'react-router-dom';
-import SelectedItemsContainer from './components/SelectedItemsContainer'
-var QRCode = require('qrcode')
+import SelectedItems from './containers/SelectedItems'
+import QrcodePage from './components/QRcodePage'
+// var QRCode = require('qrcode')
  
 // QRCode.toDataURL('http://localhost:3000/selectedResources', function (err, url) {
 //   console.log(url)
@@ -14,6 +15,13 @@ var QRCode = require('qrcode')
 //   if (err) throw err
 //   console.log(string)
 // })
+
+// var QRCode = require('qrcode.react');
+ 
+// ReactDOM.render(
+//   <QRCode value="http://facebook.github.io/react/" />,
+  
+// );
 
 
 class App extends Component {
@@ -26,7 +34,8 @@ class App extends Component {
         </div>
         <Route exact path = '/' component={SearchPage} />
         <Route exact path = '/selectedResources' render={() => 
-          <SelectedItemsContainer additionalResources={this.props.additionalResources}/>} />
+          <SelectedItems additionalResources={this.props.additionalResources}/>} />
+        <Route exact path = '/QrcodePage' component={QrcodePage} />
       </div>
     );
   }
