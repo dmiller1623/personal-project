@@ -1,11 +1,12 @@
 import React from 'react'
+import './styles.css'
 var QRCode = require('qrcode.react');
 
 const QRCodePage = () => {
   return(
-    <div>
+    <div className='qr-page'>
       <h1>QRCODE</h1>
-      <QRCode value='http://localhost:3000/selectedResources'/>
+      <QRCode className='qr-code' value='http://localhost:3000/selectedResources'/>
     </div>
   )
 }

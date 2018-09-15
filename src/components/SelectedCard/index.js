@@ -1,24 +1,36 @@
 import React from 'react'
+import minusSvg from '../../images/minus-symbol.svg'
+import './styles.css'
+import ShowMoreText from 'react-show-more-text';
+import YouTube from 'react-youtube';
+
 
 const SelectedCard = (props) => {
   return (
-  <div>
-    <article className='searched-card' onClick={() => props.deleteResources(props)}>
+    <article className='selected-card'>
       <div className='card-title'>
-        <h2>{props.Type}</h2>
+        <h2>{props.Type}:</h2>
         <h2>{props.Name}</h2>
+        <img src={minusSvg} className='minus-button' alt='delete button' onClick={() => props.deleteResources(props)}/>
       </div>
       <div className='card-info'>
-        <div className='card-description'> 
-          <p>{props.wTeaser}</p>
-        </div>
-        <div className='card-links'>
-          <p>{props.yUrl}</p>
-          <p>{props.wUrl}</p>
-        </div>
+      <div className='card-description'> 
+        <ShowMoreText>{props.wTeaser}</ShowMoreText>
       </div>
-    </article>
-  </div>
+      <div className='card-links'>
+        <YouTube
+          className='youtube-video'
+          videoId={props.yUrl.slice(39, 50)}
+          opts={{
+            height: '300',
+            width: '300',
+            autoplay: 1
+          }}
+        />
+        <p>{props.wUrl}</p>
+      </div>
+    </div> 
+  </article>
   )
 }
 

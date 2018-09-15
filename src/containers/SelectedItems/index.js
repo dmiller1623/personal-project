@@ -2,14 +2,15 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import SelectedItemsContainer from '../../components/SelectedItemsContainer'
 import { removeResource } from '../../actions'
+import './styles.css'
 
-class SelectedItems extends Component{
+export class SelectedItems extends Component{
 
   deleteResources = (resource) => {
     const resourceNames = this.props.additionalResources.map(resource => resource.Name)
     if(resourceNames.includes(resource.Name)) {
        let additionalResources = this.props.additionalResources.filter(name => {
-        return name !== resource.Name
+        return name.Name !== resource.Name
       })
       this.props.removeResource(additionalResources)
     } 
@@ -18,7 +19,7 @@ class SelectedItems extends Component{
   render() {
     const { additionalResources } = this.props
     return(
-      <div>
+      <div className='selected-container'>
         <SelectedItemsContainer additionalResources={additionalResources} deleteResources={this.deleteResources}/>
       </div>
     )
@@ -33,4 +34,4 @@ export const mapDispatchToProps = (dispatch) => ({
   removeResource: (resource) => dispatch(removeResource(resource))
 })
 
-export default connect(mapStateToProps)(SelectedItems)
+export default connect(mapStateToProps, mapDispatchToProps)(SelectedItems)
