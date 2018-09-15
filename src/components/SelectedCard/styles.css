@@ -1,4 +1,4 @@
-.searched-card {
+.selected-card {
   display: flex;
   flex-direction: column;
   background-color: #E4E4E1;
@@ -7,6 +7,7 @@
   height: 24rem;
   margin: 1rem;
   border-radius: 15px;
+  width: 95%;
   padding: .2rem .6rem; }
 
 .card-info {
@@ -30,16 +31,16 @@
   display: flex;
   justify-content: flex-end; }
 
-.add-button {
-  width: 2rem;
-  height: 2rem; }
-
-.add-button:hover {
-  cursor: pointer; }
-
 h2 {
   color: black;
   font-weight: bold; }
 
 p {
   color: black; }
+
+.minus-button {
+  width: 2rem;
+  height: 2rem; }
+
+.minus-button:hover {
+  cursor: pointer; }

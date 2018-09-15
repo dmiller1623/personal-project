@@ -1,6 +1,8 @@
 import React from 'react'
 import './styles.css'
 import addSvg from '../../images/plus.svg'
+import ShowMoreText from 'react-show-more-text';
+import YouTube from 'react-youtube';
 
 const SearchedCard = (props) => {
   return (
@@ -12,10 +14,19 @@ const SearchedCard = (props) => {
       </div>
       <div className='card-info'>
         <div className='card-description'> 
-          <p>{props.wTeaser}</p>
+        <ShowMoreText>{props.wTeaser}</ShowMoreText>
         </div>
         <div className='card-links'>
-          <p>{props.yUrl}</p>
+        {props.yUrl &&
+         <YouTube
+            className='youtube-video'
+            videoId={props.yUrl.slice(39, 50)}
+            opts={{
+              height: '300',
+              width: '300',
+              autoplay: 1
+            }}
+          />}
           <p>{props.wUrl}</p>
         </div>
       </div>
