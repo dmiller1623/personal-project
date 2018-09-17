@@ -11,6 +11,26 @@ describe('SelectedItems', () => {
       expect(wrapper).toMatchSnapshot()
       
     })
+
+    it('should call removeResources when deleteResources is called', () => {
+      const resource = { name: 'jim morrison'}
+      const additionalResources = ['jim morrison']
+      const removeResourceMock = jest.fn()
+      wrapper = shallow(<SelectedItems additionalResources={additionalResources} removeResource={removeResourceMock}/>)
+
+      wrapper.instance().deleteResources(resource)
+      expect(removeResourceMock).toHaveBeenCalled()
+    })
+
+    it('should not call removeResources if the resource down not exsist', () => {
+      const resource = { name: 'jim morrison'}
+      const additionalResources = []
+      const removeResourceMock = jest.fn()
+      wrapper = shallow(<SelectedItems additionalResources={additionalResources} removeResource={removeResourceMock}/>)
+
+      wrapper.instance().deleteResources(resource)
+      expect(removeResourceMock).not.toHaveBeenCalled()
+    })
   })
 
   describe('mapStateToProps', () => {
