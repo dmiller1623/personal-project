@@ -1,0 +1,17 @@
+.selected-items-container {
+  overflow: scroll;
+  flex-wrap: wrap;
+  display: flex;
+  width: 80%;
+  height: 100vh;
+  justify-content: center;
+}
+
+.qr-link {
+  text-decoration: none;
+  font-size: 3rem;
+  height: 4rem;
+  border: 1px solid black;
+  color: white;
+  text-align: center;
+}

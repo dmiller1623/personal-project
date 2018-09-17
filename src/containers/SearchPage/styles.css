@@ -10,3 +10,43 @@
   display: flex;
   width: 80%;
   height: 100vh; }
+
+.search-input {
+  text-align: left;
+  border-radius: 6rem;
+  border: 1px solid #a0a0a0;
+  padding: .6rem 2rem .6rem 1rem;
+  width: 10rem;
+  font-family: 'roboto';
+  transition: .5s;
+  margin-right: .4rem;
+  font-size: .9rem; }
+
+.search-button {
+  border: 1px solid #a0a0a0;
+  font-size: .9rem;
+  border-radius: 6rem;
+  font-family: 'roboto';
+  padding: .6rem 2rem .6rem 1rem;
+  transition: .5s;
+  margin-right: .4rem; }
+
+.search-button:hover {
+  cursor: pointer;
+  background-color: #1ac6ff; }
+
+.selected-resources-button {
+  color: black;
+  background-color: white;
+  text-decoration: none;
+  text-align: left;
+  font-size: .9rem;
+  border-radius: 6rem;
+  border: 1px solid #a0a0a0;
+  padding: .6rem 2rem .6rem 1rem;
+  width: 10rem;
+  font-family: 'roboto';
+  transition: .5s; }
+
+.selected-resources-button:hover {
+  background-color: #1ac6ff; }

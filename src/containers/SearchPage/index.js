@@ -11,7 +11,6 @@ export class SearchPage extends Component {
   constructor() {
     super();
     this.state = {
-      // subject: '',
       search: ''
     }
   }
@@ -40,21 +39,16 @@ export class SearchPage extends Component {
       <div className="search-page">
         <header className='header'>
         </header>
-        <div>
-          {/* <input className='subject-search'
-          type='text'
-          name='subject'
-          onChange={this.handleChange}
-          /> */}
-          <input className='search'
+        <div className='search-form'>
+          <input className='search-input'
           type='text'
           name='search'
           onChange={this.handleChange}
           placeholder='search for resources'
           />
-        <button onClick={this.handleSubmit}>Search</button>
-        <NavLink to='/selectedResources'>View Selected Resources</NavLink>
-      </div>
+          <button className='search-button' onClick={this.handleSubmit}>Search</button>
+          <NavLink className='selected-resources-button' to='/selectedResources'>View Selected Resources</NavLink>
+        </div>
       <div className='searched-cards'>
         <RelatedItemsContainer relatedSearches={this.props.relatedSearches} addResources={this.addResources}/>
       </div>

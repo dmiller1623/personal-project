@@ -8,17 +8,21 @@ const SearchedCard = (props) => {
   return (
     <article className='searched-card'>
       <div className='card-title'>
-        <h2>{props.Type}:</h2>
-        <h2>{props.Name}</h2>
-        <img src={addSvg} className='add-button' alt='add button svg' onClick={() => props.addResources(props)}/>
+        <div className='button-section'>
+          <img src={addSvg} className='add-button' alt='add button svg' onClick={() => props.addResources(props)}/>
+        </div>
+        <div className='search-heading'>
+          <h2>{props.Type}:</h2>
+          <h2>{props.Name}</h2>
+        </div>
       </div>
       <div className='card-info'>
         <div className='card-description'> 
-        <ShowMoreText>{props.wTeaser}</ShowMoreText>
+          <ShowMoreText>{props.wTeaser}</ShowMoreText>
         </div>
         <div className='card-links'>
         {props.yUrl &&
-         <YouTube
+          <YouTube
             className='youtube-video'
             videoId={props.yUrl.slice(39, 50)}
             opts={{
@@ -27,7 +31,7 @@ const SearchedCard = (props) => {
               autoplay: 1
             }}
           />}
-          <p>{props.wUrl}</p>
+          <a href={props.wUrl}>Wikipedia Link</a>
         </div>
       </div>
     </article>

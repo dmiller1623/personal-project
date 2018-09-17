@@ -1,6 +1,7 @@
 import React from 'react'
 import SelectedCard from '../SelectedCard'
 import { NavLink } from 'react-router-dom'
+import './styles.css'
 
 const SelectedItemsContainer = ({ additionalResources, deleteResources }) => {
   const displayResources = additionalResources.map((resource, index) => {
@@ -12,9 +13,9 @@ const SelectedItemsContainer = ({ additionalResources, deleteResources }) => {
   })
 
   return (
-    <div>
+    <div className='selected-items-container'>
       {displayResources}
-      <NavLink to='/QrcodePage'>Generate Qr Code</NavLink>
+      <NavLink className='qr-link' to='/QrcodePage'>Generate Qr Code</NavLink>
     </div>
   )
 }
