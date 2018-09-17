@@ -36,9 +36,7 @@ export class SearchPage extends Component {
 
   render() {
     return(
-      <div className="search-page">
-        <header className='header'>
-        </header>
+      <div className='search-page'>
         <div className='search-form'>
           <input className='search-input'
           type='text'
