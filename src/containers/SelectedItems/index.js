@@ -14,6 +14,7 @@ export class SelectedItems extends Component{
       })
       this.props.removeResource(additionalResources)
     } 
+    return 
   }
 
   render() {
