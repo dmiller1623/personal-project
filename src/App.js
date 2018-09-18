@@ -5,23 +5,6 @@ import { connect } from 'react-redux'
 import { Route, withRouter } from 'react-router-dom';
 import SelectedItems from './containers/SelectedItems'
 import QrcodePage from './components/QRcodePage'
-// var QRCode = require('qrcode')
- 
-// QRCode.toDataURL('http://localhost:3000/selectedResources', function (err, url) {
-//   console.log(url)
-// })
-
-// QRCode.toString('http://www.google.com', function (err, string) {
-//   if (err) throw err
-//   console.log(string)
-// })
-
-// var QRCode = require('qrcode.react');
- 
-// ReactDOM.render(
-//   <QRCode value="http://facebook.github.io/react/" />,
-  
-// );
 
 
 class App extends Component {

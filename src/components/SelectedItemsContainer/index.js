@@ -2,6 +2,7 @@ import React from 'react';
 import SelectedCard from '../SelectedCard';
 import { NavLink } from 'react-router-dom';
 import './styles.css';
+import PropTypes from 'prop-types';
 
 const SelectedItemsContainer = ({ additionalResources, deleteResources }) => {
   const displayResources = additionalResources.map((resource, index) => {
@@ -18,6 +19,11 @@ const SelectedItemsContainer = ({ additionalResources, deleteResources }) => {
       <NavLink className='qr-link' to='/QrcodePage'>Generate Qr Code</NavLink>
     </div>
   );
+};
+
+SelectedItemsContainer.propTypes = {
+  additionalResources: PropTypes.array,
+  deleteResources: PropTypes.func
 };
 
 export default SelectedItemsContainer;  

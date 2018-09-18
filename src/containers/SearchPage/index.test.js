@@ -1,87 +1,95 @@
 import React from 'react';
-import { shallow } from 'enzyme'
+import { shallow } from 'enzyme';
 import { mapStateToProps, mapDispatchToProps, SearchPage } from '../SearchPage';
 import { searchRelated, addToResources } from '../../actions';
-import { mockSearchData } from '../../utilities/apiCalls/mockData'
+import { mockSearchData } from '../../utilities/apiCalls/mockData';
 
 
 describe('SearchPage', () => {
-  let wrapper
+  let wrapper;
   it('should match the snapshot', () => {
-    let mockAddtionalResources = []
-    let relatedSearchesMock = []
-    let mockAddToResources = jest.fn()
-    wrapper = shallow(<SearchPage relatedSearches={relatedSearchesMock} additionalResources={mockAddtionalResources} addToResources={mockAddToResources}/>)
-    expect(wrapper).toMatchSnapshot()
-  })
+    let mockAddtionalResources = [];
+    let relatedSearchesMock = [];
+    let mockAddToResources = jest.fn();
+    wrapper = shallow(<SearchPage relatedSearches={relatedSearchesMock} additionalResources={mockAddtionalResources} addToResources={mockAddToResources}/>);
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it('should match the snapshot when there is addition resources', () => {
+    let mockAddtionalResources = [];
+    let relatedSearchesMock = [{ name: 'jim morrison' }];
+    let mockAddToResources = jest.fn();
+    wrapper = shallow(<SearchPage relatedSearches={relatedSearchesMock} additionalResources={mockAddtionalResources} addToResources={mockAddToResources}/>);
+    expect(wrapper).toMatchSnapshot();
+  });
 
   it('should call handle submit when a letter is pressed', () => {
-    let eventObject = { target: { name: 'search', value: 'a' } }
-    let mockAddtionalResources = []
-    let relatedSearchesMock = []
-    let mockAddToResources = jest.fn()
-    wrapper = shallow(<SearchPage relatedSearches={relatedSearchesMock} additionalResources={mockAddtionalResources} addToResources={mockAddToResources}/>)
+    let eventObject = { target: { name: 'search', value: 'a' } };
+    let mockAddtionalResources = [];
+    let relatedSearchesMock = [];
+    let mockAddToResources = jest.fn();
+    wrapper = shallow(<SearchPage relatedSearches={relatedSearchesMock} additionalResources={mockAddtionalResources} addToResources={mockAddToResources}/>);
 
-    wrapper.find('input').simulate('change', eventObject)
-    expect(wrapper.state('search')).toEqual('a')
-  })
+    wrapper.find('input').simulate('change', eventObject);
+    expect(wrapper.state('search')).toEqual('a');
+  });
 
   it('should call search related when clicking on submit', async () => {
     window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
       status: 200,
       json: () => Promise.resolve(mockSearchData)
     }));
-    let searchRelatedMock = jest.fn()
-    let mockAddtionalResources = []
-    let relatedSearchesMock = []
-    let mockAddToResources = jest.fn()
-    wrapper = shallow(<SearchPage searchRelated={searchRelatedMock} relatedSearches={relatedSearchesMock} additionalResources={mockAddtionalResources} addToResources={mockAddToResources}/>)
+    let searchRelatedMock = jest.fn();
+    let mockAddtionalResources = [];
+    let relatedSearchesMock = [];
+    let mockAddToResources = jest.fn();
+    wrapper = shallow(<SearchPage searchRelated={searchRelatedMock} relatedSearches={relatedSearchesMock} additionalResources={mockAddtionalResources} addToResources={mockAddToResources}/>);
     
-    await (wrapper).instance().handleSubmit()
-    expect(searchRelatedMock).toHaveBeenCalled()
+    await (wrapper).instance().handleSubmit();
+    expect(searchRelatedMock).toHaveBeenCalled();
 
-  })
+  });
 
   it('should call addToResources when add resources is called', () => {
-    let mockResource = { name: 'jim morrison' }
-    let mockAddtionalResources = []
-    let relatedSearchesMock = []
-    let mockAddToResources = jest.fn()
-    wrapper = shallow(<SearchPage relatedSearches={relatedSearchesMock} additionalResources={mockAddtionalResources} addToResources={mockAddToResources}/>)
-    wrapper.instance().addResources(mockResource)
+    let mockResource = { name: 'jim morrison' };
+    let mockAddtionalResources = [];
+    let relatedSearchesMock = [];
+    let mockAddToResources = jest.fn();
+    wrapper = shallow(<SearchPage relatedSearches={relatedSearchesMock} additionalResources={mockAddtionalResources} addToResources={mockAddToResources}/>);
+    wrapper.instance().addResources(mockResource);
 
-    expect(mockAddToResources).toHaveBeenCalledWith(mockResource)
+    expect(mockAddToResources).toHaveBeenCalledWith(mockResource);
 
-  })
+  });
 
   it('should not call addToResources if the item already exsits', () => {
-    let mockResource = { name: 'jim morrison' }
-    let mockAddtionalResources = [{ name: 'jim morrison'}]
-    let relatedSearchesMock = []
+    let mockResource = { name: 'jim morrison' };
+    let mockAddtionalResources = [{ name: 'jim morrison'}];
+    let relatedSearchesMock = [];
 
-    let mockAddToResources = jest.fn()
-    wrapper = shallow(<SearchPage relatedSearches={relatedSearchesMock} additionalResources={mockAddtionalResources} addToResources={mockAddToResources}/>)
-    wrapper.instance().addResources(mockResource)
+    let mockAddToResources = jest.fn();
+    wrapper = shallow(<SearchPage relatedSearches={relatedSearchesMock} additionalResources={mockAddtionalResources} addToResources={mockAddToResources}/>);
+    wrapper.instance().addResources(mockResource);
 
-    expect(mockAddToResources).not.toHaveBeenCalledWith(mockResource)
+    expect(mockAddToResources).not.toHaveBeenCalledWith(mockResource);
 
-  })
+  });
 
   describe('mapStateToProps', () => {
     it('should return an array of related items', () => {
       const mockState = {
         relatedSearches: [],
         selectedItems: []
-      }
+      };
 
       const expected = {
         relatedSearches: []
-      }
+      };
 
       const mappedProps = mapStateToProps(mockState);
       expect(mappedProps).toEqual(expected);
-    })
-  })
+    });
+  });
 
   describe('mapDispatchToProps', () => {
     it('should call dispatch when using a function MDTP', () => {
@@ -93,7 +101,7 @@ describe('SearchPage', () => {
       mappedProps.searchRelated();
   
       expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
-    })
+    });
 
     it('should call dispatch when using a function MDTP', () => {
 
@@ -104,6 +112,6 @@ describe('SearchPage', () => {
       mappedProps.addToResources();
   
       expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
-    })
-  })
-})
+    });
+  });
+});

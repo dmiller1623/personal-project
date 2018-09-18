@@ -3,7 +3,7 @@ import minusSvg from '../../images/minus-symbol.svg';
 import './styles.css';
 import ShowMoreText from 'react-show-more-text';
 import YouTube from 'react-youtube';
-
+import PropTypes from 'prop-types';
 
 const SelectedCard = (props) => {
   return (
@@ -32,6 +32,18 @@ const SelectedCard = (props) => {
       </div> 
     </article>
   );
+};
+
+SelectedCard.propTypes = {
+  addResources: PropTypes.func,
+  additionalResources: PropTypes.array,
+  deleteResources: PropTypes.func,
+  removeResource: PropTypes.func,
+  Name: PropTypes.string,
+  Type: PropTypes.string,
+  wTeaser: PropTypes.string,
+  yUrl: PropTypes.string,
+  wUrl: PropTypes.string
 };
 
 export default SelectedCard;

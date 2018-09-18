@@ -6,7 +6,7 @@ import ShowMoreText from 'react-show-more-text';
 import YouTube from 'react-youtube';
 import minusSvg from '../../images/minus-symbol.svg';
 import { removeResource } from '../../actions';
-
+import PropTypes from 'prop-types';
 
 export class SearchedCard extends Component {
   constructor(props) {
@@ -23,8 +23,8 @@ export class SearchedCard extends Component {
     if (resourceNames.includes(resource.Name)) {
       let additionalResources = this.props.additionalResources.filter(name => {
         return name.Name !== resource.Name;
-      })
-     this.props.removeResource(additionalResources);
+      });
+      this.props.removeResource(additionalResources);
     } 
     this.props.addResources(this.props);
   }
@@ -46,7 +46,7 @@ export class SearchedCard extends Component {
             <ShowMoreText>{this.props.wTeaser}</ShowMoreText>
           </div>
           <div className='card-links'>
-          {this.props.yUrl &&
+            {this.props.yUrl &&
           <YouTube
             className='youtube-video'
             videoId={this.props.yUrl.slice(39, 50)}
@@ -56,13 +56,25 @@ export class SearchedCard extends Component {
               autoplay: 1
             }}
           />}
-          <a href={this.props.wUrl}>Wikipedia Link</a>
+            <a href={this.props.wUrl}>Wikipedia Link</a>
           </div>
         </div>
       </article>
     );
   }
 }
+
+SearchedCard.propTypes = {
+  addResources: PropTypes.func,
+  additionalResources: PropTypes.array,
+  deleteResources: PropTypes.func,
+  removeResource: PropTypes.func,
+  Name: PropTypes.string,
+  Type: PropTypes.string,
+  wTeaser: PropTypes.string,
+  yUrl: PropTypes.string,
+  wUrl: PropTypes.string
+};
 
 export const mapStateToProps = (state) => ({
   additionalResources: state.additionalResources

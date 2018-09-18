@@ -1,5 +1,5 @@
-import { getRelatedData } from './apiCalls'
-import { mockSearchData } from './mockData'
+import { getRelatedData } from './apiCalls';
+import { mockSearchData } from './mockData';
 
 describe('getRelatedData', () => {
   it('fetch should be called when the user searches', async () => {
@@ -16,6 +16,6 @@ describe('getRelatedData', () => {
     const errorMessage = new Error('boo');
     window.fetch = jest.fn().mockImplementation(() => Promise.reject(errorMessage));
     
-    await expect(getRelatedData()).rejects.toEqual(errorMessage)
-  })
-})
+    await expect(getRelatedData()).rejects.toEqual(errorMessage);
+  });
+});

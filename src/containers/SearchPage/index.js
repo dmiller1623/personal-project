@@ -5,7 +5,7 @@ import { searchRelated, addToResources } from '../../actions';
 import RelatedItemsContainer from '../../components/RelatedItemsContainer';
 import { NavLink } from 'react-router-dom';
 import './styles.css';
-
+import PropTypes from 'prop-types';
 
 export class SearchPage extends Component {
   constructor() {
@@ -35,11 +35,11 @@ export class SearchPage extends Component {
   } 
 
   render() {
-    if(!this.props.relatedSearches.length) {
+    if (!this.props.relatedSearches.length) {
       return (
         <div className='search-page'>
-           <div className='search-form'>
-              <input className='search-input'
+          <div className='search-form'>
+            <input className='search-input'
               type='text'
               name='search'
               onChange={this.handleChange}
@@ -55,16 +55,16 @@ export class SearchPage extends Component {
             </h2>
           </div>
         </div>
-        ); 
+      ); 
     } else {
       return (
         <div className='search-page'>
           <div className='search-form'>
             <input className='search-input'
-            type='text'
-            name='search'
-            onChange={this.handleChange}
-            placeholder='search for resources'
+              type='text'
+              name='search'
+              onChange={this.handleChange}
+              placeholder='search for resources'
             />
             <button className='search-button' onClick={this.handleSubmit}>Search</button>
             <NavLink className='selected-resources-button' to='/selectedResources'>View Selected Resources</NavLink>
@@ -72,11 +72,21 @@ export class SearchPage extends Component {
           <div className='searched-cards'>
             <RelatedItemsContainer relatedSearches={this.props.relatedSearches} addResources={this.addResources}/>
           </div>
-       </div>
+        </div>
       );
     } 
   }
 }
+
+SearchPage.propTypes = {
+  addResources: PropTypes.func,
+  addToResources: PropTypes.func,
+  searchRelated: PropTypes.func,
+  additionalResources: PropTypes.array,
+  deleteResources: PropTypes.func,
+  removeResource: PropTypes.func,
+  relatedSearches: PropTypes.array
+};
 
 export const mapStateToProps = (state) => ({
   relatedSearches: state.relatedSearches,
