@@ -13,4 +13,4 @@ Run `npm start` and visit localhost:3000 in your browser
 
 
 ## GIF
-<!-- <img src='https://github.com/dmiller1623/dm-kd-swapi-box/blob/master/Images/ezgif.com-video-to-gif.gif'> -->
+<img src=https://github.com/dmiller1623/personal-project/blob/master/src/images/ezgif.com-video-to-gif.gif>
