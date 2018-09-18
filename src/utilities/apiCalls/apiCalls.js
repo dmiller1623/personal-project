@@ -4,7 +4,7 @@ import { cleanData } from '../helper/helper.js'
 export const getRelatedData = async (search) => {
  const key = process.env.API_KEY
  const url = `https://tastedive.com/api/similar?q=${search}&k=${key}&info=1`
- console.log(key)
+ console.log(API_KEY)
  console.log(search)
  console.log(url)
   try {
