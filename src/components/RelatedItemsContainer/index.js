@@ -1,5 +1,6 @@
 import React from 'react'
 import SearchedCard from '../../components/SearchedCard'
+import './styles.css'
 
 const RelatedItemsContainer = ({ relatedSearches, addResources }) => {
   const displayItems = relatedSearches.map((item, index) => {
@@ -11,7 +12,7 @@ const RelatedItemsContainer = ({ relatedSearches, addResources }) => {
     })
 
     return(
-      <div>
+      <div className='related-items-container'>
         {displayItems}
       </div>
     )

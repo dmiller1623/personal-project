@@ -8,9 +8,19 @@
   width: 100%;
   margin: 1rem;
   border-radius: 15px;
-  // width: 95%;
   padding: .2rem .6rem;
 }
+
+// .selected-search-heading {
+//   display: flex;
+//   width: 65%;
+// }
+
+// .selected-button-section {
+//   display: flex;
+//   width: 30%;
+//   justify-content: flex-end;
+// }
 
 .selected-card-info {
   width: 100%;
@@ -20,6 +30,7 @@
 }
 
 .selected-card-title {
+  flex-direction: row-reverse;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -51,9 +62,12 @@
 }
 
  .searched-title {
-  margin-left: 2rem;
-  color: black;
+  font-size: 2rem;
+  margin-bottom: 0;
+  margin-left: 1rem;
+  color: #f7f7ff;
   font-weight: bold;
+  font-family: 'Judson', serif;
 }
 
 p {

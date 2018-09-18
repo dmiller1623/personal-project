@@ -64,8 +64,8 @@ class SearchedCard extends Component {
             <img src={this.state.clicked ? minusSvg : addSvg} className='add-button' alt='add button svg' onClick={this.switchClass}/>
           </div>
           <div className='search-heading'>
-            <h2>{this.props.Type}:</h2>
-            <h2>{this.props.Name}</h2>
+            <h1>{this.props.Type}:</h1>
+            <h1 className='searched-card-title'>{this.props.Name}</h1>
           </div>
         </div>
         <div className='card-info'>

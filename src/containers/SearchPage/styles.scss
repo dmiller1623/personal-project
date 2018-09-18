@@ -58,3 +58,16 @@
 .selected-resources-button:hover {
   background-color: #1ac6ff;
 }
+
+.welcome-heading {
+  padding: 1.5rem;
+  margin-top: 5rem;
+  background-color: #E4E4E1;
+  background-image: radial-gradient(at top center, rgba(255,255,255,0.03) 0%, rgba(0,0,0,0.03) 100%), linear-gradient(to top, rgba(255,255,255,0.1) 0%, rgba(143,152,157,0.60) 100%);
+  width: 50%;
+  height: 15rem;
+}
+
+.welcome {
+  color: #f7f7f7;
+}
