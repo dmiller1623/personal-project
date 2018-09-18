@@ -2,10 +2,11 @@
 import { cleanData } from '../helper/helper.js'
 
 export const getRelatedData = async (search) => {
- const key = process.env.API_KEY
- const url = `https://tastedive.com/api/similar?q=${search}&k=${key}&info=1`
+ const API_KEY = process.env.API_KEY
+ const url = `https://tastedive.com/api/similar?q=${search}&k=${API_KEY}&info=1`
  console.log(search)
  console.log(url)
+ console.log(API_KEY)
   try {
     const response = await fetch(url)
     const data = await response.json()
