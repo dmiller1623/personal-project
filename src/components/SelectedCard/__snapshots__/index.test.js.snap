@@ -21,24 +21,23 @@ ShallowWrapper {
     "props": Object {
       "children": Array [
         <div
-          className="card-title"
+          className="selected-card-title"
 >
-          <h2>
-                    :
-          </h2>
-          <h2 />
           <img
                     alt="delete button"
                     className="minus-button"
                     onClick={[Function]}
                     src="minus-symbol.svg"
           />
+          <h1
+                    className="searched-title"
+          />
 </div>,
         <div
-          className="card-info"
+          className="selected-card-info"
 >
           <div
-                    className="card-description"
+                    className="selected-card-description"
           >
                     <ShowMoreText
                               anchorClass=""
@@ -49,7 +48,7 @@ ShallowWrapper {
                     />
           </div>
           <div
-                    className="card-links"
+                    className="selected-card-links"
           >
                     <YouTube
                               className="youtube-video"
@@ -72,7 +71,11 @@ ShallowWrapper {
                               }
                               videoId=""
                     />
-                    <p />
+                    <a
+                              href={undefined}
+                    >
+                              Wikipedia Link
+                    </a>
           </div>
 </div>,
       ],
@@ -86,49 +89,20 @@ ShallowWrapper {
         "nodeType": "host",
         "props": Object {
           "children": Array [
-            <h2>
-              :
-</h2>,
-            <h2 />,
             <img
               alt="delete button"
               className="minus-button"
               onClick={[Function]}
               src="minus-symbol.svg"
 />,
+            <h1
+              className="searched-title"
+/>,
           ],
-          "className": "card-title",
+          "className": "selected-card-title",
         },
         "ref": null,
         "rendered": Array [
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "host",
-            "props": Object {
-              "children": Array [
-                undefined,
-                ":",
-              ],
-            },
-            "ref": null,
-            "rendered": Array [
-              undefined,
-              ":",
-            ],
-            "type": "h2",
-          },
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "host",
-            "props": Object {
-              "children": undefined,
-            },
-            "ref": null,
-            "rendered": null,
-            "type": "h2",
-          },
           Object {
             "instance": null,
             "key": undefined,
@@ -143,6 +117,18 @@ ShallowWrapper {
             "rendered": null,
             "type": "img",
           },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": undefined,
+              "className": "searched-title",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "h1",
+          },
         ],
         "type": "div",
       },
@@ -153,7 +139,7 @@ ShallowWrapper {
         "props": Object {
           "children": Array [
             <div
-              className="card-description"
+              className="selected-card-description"
 >
               <ShowMoreText
                             anchorClass=""
@@ -164,7 +150,7 @@ ShallowWrapper {
               />
 </div>,
             <div
-              className="card-links"
+              className="selected-card-links"
 >
               <YouTube
                             className="youtube-video"
@@ -187,10 +173,14 @@ ShallowWrapper {
                             }
                             videoId=""
               />
-              <p />
+              <a
+                            href={undefined}
+              >
+                            Wikipedia Link
+              </a>
 </div>,
           ],
-          "className": "card-info",
+          "className": "selected-card-info",
         },
         "ref": null,
         "rendered": Array [
@@ -206,7 +196,7 @@ ShallowWrapper {
                 more="Show more"
                 onClick={undefined}
 />,
-              "className": "card-description",
+              "className": "selected-card-description",
             },
             "ref": null,
             "rendered": Object {
@@ -254,9 +244,13 @@ ShallowWrapper {
                   }
                   videoId=""
 />,
-                <p />,
+                <a
+                  href={undefined}
+>
+                  Wikipedia Link
+</a>,
               ],
-              "className": "card-links",
+              "className": "selected-card-links",
             },
             "ref": null,
             "rendered": Array [
@@ -292,11 +286,12 @@ ShallowWrapper {
                 "key": undefined,
                 "nodeType": "host",
                 "props": Object {
-                  "children": undefined,
+                  "children": "Wikipedia Link",
+                  "href": undefined,
                 },
                 "ref": null,
-                "rendered": null,
-                "type": "p",
+                "rendered": "Wikipedia Link",
+                "type": "a",
               },
             ],
             "type": "div",
@@ -315,24 +310,23 @@ ShallowWrapper {
       "props": Object {
         "children": Array [
           <div
-            className="card-title"
+            className="selected-card-title"
 >
-            <h2>
-                        :
-            </h2>
-            <h2 />
             <img
                         alt="delete button"
                         className="minus-button"
                         onClick={[Function]}
                         src="minus-symbol.svg"
             />
+            <h1
+                        className="searched-title"
+            />
 </div>,
           <div
-            className="card-info"
+            className="selected-card-info"
 >
             <div
-                        className="card-description"
+                        className="selected-card-description"
             >
                         <ShowMoreText
                                     anchorClass=""
@@ -343,7 +337,7 @@ ShallowWrapper {
                         />
             </div>
             <div
-                        className="card-links"
+                        className="selected-card-links"
             >
                         <YouTube
                                     className="youtube-video"
@@ -366,7 +360,11 @@ ShallowWrapper {
                                     }
                                     videoId=""
                         />
-                        <p />
+                        <a
+                                    href={undefined}
+                        >
+                                    Wikipedia Link
+                        </a>
             </div>
 </div>,
         ],
@@ -380,49 +378,20 @@ ShallowWrapper {
           "nodeType": "host",
           "props": Object {
             "children": Array [
-              <h2>
-                :
-</h2>,
-              <h2 />,
               <img
                 alt="delete button"
                 className="minus-button"
                 onClick={[Function]}
                 src="minus-symbol.svg"
 />,
+              <h1
+                className="searched-title"
+/>,
             ],
-            "className": "card-title",
+            "className": "selected-card-title",
           },
           "ref": null,
           "rendered": Array [
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "host",
-              "props": Object {
-                "children": Array [
-                  undefined,
-                  ":",
-                ],
-              },
-              "ref": null,
-              "rendered": Array [
-                undefined,
-                ":",
-              ],
-              "type": "h2",
-            },
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "host",
-              "props": Object {
-                "children": undefined,
-              },
-              "ref": null,
-              "rendered": null,
-              "type": "h2",
-            },
             Object {
               "instance": null,
               "key": undefined,
@@ -437,6 +406,18 @@ ShallowWrapper {
               "rendered": null,
               "type": "img",
             },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": undefined,
+                "className": "searched-title",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "h1",
+            },
           ],
           "type": "div",
         },
@@ -447,7 +428,7 @@ ShallowWrapper {
           "props": Object {
             "children": Array [
               <div
-                className="card-description"
+                className="selected-card-description"
 >
                 <ShowMoreText
                                 anchorClass=""
@@ -458,7 +439,7 @@ ShallowWrapper {
                 />
 </div>,
               <div
-                className="card-links"
+                className="selected-card-links"
 >
                 <YouTube
                                 className="youtube-video"
@@ -481,10 +462,14 @@ ShallowWrapper {
                                 }
                                 videoId=""
                 />
-                <p />
+                <a
+                                href={undefined}
+                >
+                                Wikipedia Link
+                </a>
 </div>,
             ],
-            "className": "card-info",
+            "className": "selected-card-info",
           },
           "ref": null,
           "rendered": Array [
@@ -500,7 +485,7 @@ ShallowWrapper {
                   more="Show more"
                   onClick={undefined}
 />,
-                "className": "card-description",
+                "className": "selected-card-description",
               },
               "ref": null,
               "rendered": Object {
@@ -548,9 +533,13 @@ ShallowWrapper {
                     }
                     videoId=""
 />,
-                  <p />,
+                  <a
+                    href={undefined}
+>
+                    Wikipedia Link
+</a>,
                 ],
-                "className": "card-links",
+                "className": "selected-card-links",
               },
               "ref": null,
               "rendered": Array [
@@ -586,11 +575,12 @@ ShallowWrapper {
                   "key": undefined,
                   "nodeType": "host",
                   "props": Object {
-                    "children": undefined,
+                    "children": "Wikipedia Link",
+                    "href": undefined,
                   },
                   "ref": null,
-                  "rendered": null,
-                  "type": "p",
+                  "rendered": "Wikipedia Link",
+                  "type": "a",
                 },
               ],
               "type": "div",

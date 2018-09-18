@@ -21,6 +21,7 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": Array [],
+      "className": "related-items-container",
     },
     "ref": null,
     "rendered": Array [],
@@ -33,6 +34,7 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [],
+        "className": "related-items-container",
       },
       "ref": null,
       "rendered": Array [],

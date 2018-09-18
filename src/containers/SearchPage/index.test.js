@@ -8,13 +8,19 @@ import { mockSearchData } from '../../utilities/apiCalls/mockData'
 describe('SearchPage', () => {
   let wrapper
   it('should match the snapshot', () => {
-    wrapper = shallow(<SearchPage store={{}}/>)
+    let mockAddtionalResources = []
+    let relatedSearchesMock = []
+    let mockAddToResources = jest.fn()
+    wrapper = shallow(<SearchPage relatedSearches={relatedSearchesMock} additionalResources={mockAddtionalResources} addToResources={mockAddToResources}/>)
     expect(wrapper).toMatchSnapshot()
   })
 
   it('should call handle submit when a letter is pressed', () => {
     let eventObject = { target: { name: 'search', value: 'a' } }
-    wrapper = shallow(<SearchPage store={{}}/>)
+    let mockAddtionalResources = []
+    let relatedSearchesMock = []
+    let mockAddToResources = jest.fn()
+    wrapper = shallow(<SearchPage relatedSearches={relatedSearchesMock} additionalResources={mockAddtionalResources} addToResources={mockAddToResources}/>)
 
     wrapper.find('input').simulate('change', eventObject)
     expect(wrapper.state('search')).toEqual('a')
@@ -26,7 +32,10 @@ describe('SearchPage', () => {
       json: () => Promise.resolve(mockSearchData)
     }));
     let searchRelatedMock = jest.fn()
-    wrapper = shallow(<SearchPage searchRelated={searchRelatedMock}/>)
+    let mockAddtionalResources = []
+    let relatedSearchesMock = []
+    let mockAddToResources = jest.fn()
+    wrapper = shallow(<SearchPage searchRelated={searchRelatedMock} relatedSearches={relatedSearchesMock} additionalResources={mockAddtionalResources} addToResources={mockAddToResources}/>)
     
     await (wrapper).instance().handleSubmit()
     expect(searchRelatedMock).toHaveBeenCalled()
@@ -36,8 +45,9 @@ describe('SearchPage', () => {
   it('should call addToResources when add resources is called', () => {
     let mockResource = { name: 'jim morrison' }
     let mockAddtionalResources = []
+    let relatedSearchesMock = []
     let mockAddToResources = jest.fn()
-    wrapper = shallow(<SearchPage additionalResources={mockAddtionalResources} addToResources={mockAddToResources}/>)
+    wrapper = shallow(<SearchPage relatedSearches={relatedSearchesMock} additionalResources={mockAddtionalResources} addToResources={mockAddToResources}/>)
     wrapper.instance().addResources(mockResource)
 
     expect(mockAddToResources).toHaveBeenCalledWith(mockResource)
@@ -47,8 +57,10 @@ describe('SearchPage', () => {
   it('should not call addToResources if the item already exsits', () => {
     let mockResource = { name: 'jim morrison' }
     let mockAddtionalResources = [{ name: 'jim morrison'}]
+    let relatedSearchesMock = []
+
     let mockAddToResources = jest.fn()
-    wrapper = shallow(<SearchPage additionalResources={mockAddtionalResources} addToResources={mockAddToResources}/>)
+    wrapper = shallow(<SearchPage relatedSearches={relatedSearchesMock} additionalResources={mockAddtionalResources} addToResources={mockAddToResources}/>)
     wrapper.instance().addResources(mockResource)
 
     expect(mockAddToResources).not.toHaveBeenCalledWith(mockResource)

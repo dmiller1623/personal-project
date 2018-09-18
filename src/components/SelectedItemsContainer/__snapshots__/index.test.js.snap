@@ -25,11 +25,13 @@ ShallowWrapper {
         <NavLink
           activeClassName="active"
           aria-current="page"
+          className="qr-link"
           to="/QrcodePage"
 >
           Generate Qr Code
 </NavLink>,
       ],
+      "className": "selected-items-container",
     },
     "ref": null,
     "rendered": Array [
@@ -41,6 +43,7 @@ ShallowWrapper {
           "activeClassName": "active",
           "aria-current": "page",
           "children": "Generate Qr Code",
+          "className": "qr-link",
           "to": "/QrcodePage",
         },
         "ref": null,
@@ -61,11 +64,13 @@ ShallowWrapper {
           <NavLink
             activeClassName="active"
             aria-current="page"
+            className="qr-link"
             to="/QrcodePage"
 >
             Generate Qr Code
 </NavLink>,
         ],
+        "className": "selected-items-container",
       },
       "ref": null,
       "rendered": Array [
@@ -77,6 +82,7 @@ ShallowWrapper {
             "activeClassName": "active",
             "aria-current": "page",
             "children": "Generate Qr Code",
+            "className": "qr-link",
             "to": "/QrcodePage",
           },
           "ref": null,

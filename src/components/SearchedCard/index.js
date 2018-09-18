@@ -1,9 +1,12 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import './styles.css'
 import addSvg from '../../images/plus.svg'
 import ShowMoreText from 'react-show-more-text';
 import YouTube from 'react-youtube';
 import minusSvg from '../../images/minus-symbol.svg'
+import { removeResource } from '../../actions'
+
 
 
 // const SearchedCard = (props) => {
@@ -42,7 +45,7 @@ import minusSvg from '../../images/minus-symbol.svg'
 
 // export default SearchedCard
 
-class SearchedCard extends Component {
+export class SearchedCard extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -50,10 +53,17 @@ class SearchedCard extends Component {
     }
   }
 
-  switchClass = () => {
+  filterResources = (resource) => {
     const clicked = !this.state.clicked
     this.setState({ clicked })
-    this.props.addResources(this.props)
+    const resourceNames = this.props.additionalResources.map(resource => resource.Name)
+    if(resourceNames.includes(resource.Name)) {
+      let additionalResources = this.props.additionalResources.filter(name => {
+       return name.Name !== resource.Name
+     })
+     this.props.removeResource(additionalResources)
+   } 
+     this.props.addResources(this.props)
   }
 
   render() {
@@ -61,7 +71,7 @@ class SearchedCard extends Component {
       <article className='searched-card'>
         <div className='card-title'>
           <div className='button-section'>
-            <img src={this.state.clicked ? minusSvg : addSvg} className='add-button' alt='add button svg' onClick={this.switchClass}/>
+            <img src={this.state.clicked ? minusSvg : addSvg} className='add-button' alt='add button svg' onClick={() => this.filterResources(this.props)}/>
           </div>
           <div className='search-heading'>
             <h1>{this.props.Type}:</h1>
@@ -91,4 +101,12 @@ class SearchedCard extends Component {
   }
 }
 
-export default SearchedCard
+export const mapStateToProps = (state) => ({
+  additionalResources: state.additionalResources
+})
+
+export const mapDispatchToProps = (dispatch) => ({
+  removeResource: (resource) => dispatch(removeResource(resource))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(SearchedCard)

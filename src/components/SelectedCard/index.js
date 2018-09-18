@@ -9,12 +9,8 @@ const SelectedCard = (props) => {
   return (
     <article className='selected-card'>
       <div className='selected-card-title'>
-        {/* <div className='selected-button-section'> */}
-          <img src={minusSvg} className='minus-button' alt='delete button' onClick={() => props.deleteResources(props)}/>
-        {/* </div> */}
-        {/* <div className='selected-search-heading'> */}
-          <h1 className='searched-title'>{props.Name}</h1>
-        {/* </div> */}
+        <img src={minusSvg} className='minus-button' alt='delete button' onClick={() => props.deleteResources(props)}/>
+        <h1 className='searched-title'>{props.Name}</h1>
       </div>
       <div className='selected-card-info'>
         <div className='selected-card-description'> 
