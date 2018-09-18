@@ -2,7 +2,7 @@ import apiKey from '../../apiKey.js';
 import { cleanData } from '../helper/helper.js'
 
 export const getRelatedData = async (search) => {
- const key = process.env.API_KEY
+ const key = process.env.API_KEY || apiKey
  const url = `https://tastedive.com/api/similar?q=${search}&k=${key}&info=1`
   try {
     const response = await fetch(url)
