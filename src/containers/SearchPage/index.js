@@ -35,23 +35,46 @@ export class SearchPage extends Component {
   } 
 
   render() {
+      if(!this.props.relatedSearches.length) {
+        return(
+          <div className='search-page'>
+            <div className='search-form'>
+              <input className='search-input'
+              type='text'
+              name='search'
+              onChange={this.handleChange}
+              placeholder='search for resources'
+              />
+              <button className='search-button' onClick={this.handleSubmit}>Search</button>
+              <NavLink className='selected-resources-button' to='/selectedResources'>View Selected Resources</NavLink>
+            </div>
+            <div className='welcome-heading'>
+              <h2 className='welcome'>Welcome to Outsourced. Outsourced is a site designed to allow the user to search for related resources based on your search.
+                  Start out by searching a book, movie, or music and click the add button to add them to your additional resources.
+                  You can create a QR code for your users to scan on the additional resources page.
+              </h2>
+            </div>
+          </div>
+        ) 
+      } else {
     return(
-      <div className='search-page'>
-        <div className='search-form'>
-          <input className='search-input'
-          type='text'
-          name='search'
-          onChange={this.handleChange}
-          placeholder='search for resources'
-          />
-          <button className='search-button' onClick={this.handleSubmit}>Search</button>
-          <NavLink className='selected-resources-button' to='/selectedResources'>View Selected Resources</NavLink>
-        </div>
-      <div className='searched-cards'>
-        <RelatedItemsContainer relatedSearches={this.props.relatedSearches} addResources={this.addResources}/>
-      </div>
-    </div>
-    )
+        <div className='search-page'>
+          <div className='search-form'>
+            <input className='search-input'
+            type='text'
+            name='search'
+            onChange={this.handleChange}
+            placeholder='search for resources'
+            />
+            <button className='search-button' onClick={this.handleSubmit}>Search</button>
+            <NavLink className='selected-resources-button' to='/selectedResources'>View Selected Resources</NavLink>
+          </div>
+          <div className='searched-cards'>
+            <RelatedItemsContainer relatedSearches={this.props.relatedSearches} addResources={this.addResources}/>
+          </div>
+       </div>
+      )
+    } 
   }
 }
 

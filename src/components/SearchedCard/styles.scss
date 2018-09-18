@@ -6,7 +6,7 @@
   background-blend-mode: normal, multiply; 
   height: 24rem;
   margin: 1rem;
-  width: 100%;
+  // width: 100%;
   border-radius: 15px;
   padding: .2rem .6rem;
 }
@@ -51,6 +51,7 @@
 }
 
 .add-button {
+  margin-right: .5rem;
   width: 2rem;
   height: 2rem;
 }
@@ -74,11 +75,15 @@
   cursor: pointer;
 }
 
-h2 {
-  color: black;
+.searched-card-title {
+  font-size: 3rem;
+  margin-left: 1rem;
+  color: #f7f7ff;
   font-weight: bold;
+  font-family: 'Judson', serif;
 }
 
-p {
+span {
   color: black;
+  // font-family: 'Julius Sans One', sans-serif;
 }
