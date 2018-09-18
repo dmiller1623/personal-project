@@ -6,6 +6,7 @@ export const getRelatedData = async (search) => {
  const url = `https://tastedive.com/api/similar?q=${search}&k=${key}&info=1`
  console.log(key)
  console.log(search)
+ console.log(url)
   try {
     const response = await fetch(url)
     const data = await response.json()
