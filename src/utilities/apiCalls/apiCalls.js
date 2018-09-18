@@ -1,4 +1,4 @@
-import apiKey from '../../apiKey.js';
+// import apiKey from '../../apiKey.js';
 import { cleanData } from '../helper/helper.js';
 
 export const getRelatedData = async (search) => {
