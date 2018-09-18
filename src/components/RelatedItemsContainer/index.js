@@ -1,5 +1,5 @@
 import React from 'react';
-import SearchedCard from '../../components/SearchedCard';
+import SearchedCard from '../../containers/SearchedCard';
 import './styles.css';
 import PropTypes from 'prop-types';
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import RelatedItemsContainer from '../RelatedItemsContainer';
-import SearchedCard from '../../components/SearchedCard';
+import SearchedCard from '../../containers/SearchedCard';
 
 
 describe('RelatedItemsContainer', () => {
