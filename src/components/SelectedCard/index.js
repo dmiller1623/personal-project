@@ -1,6 +1,6 @@
-import React from 'react'
-import minusSvg from '../../images/minus-symbol.svg'
-import './styles.css'
+import React from 'react';
+import minusSvg from '../../images/minus-symbol.svg';
+import './styles.css';
 import ShowMoreText from 'react-show-more-text';
 import YouTube from 'react-youtube';
 
@@ -27,11 +27,11 @@ const SelectedCard = (props) => {
                 autoplay: 1
               }}
             />}
-            <a href={props.wUrl}>Wikipedia Link</a>
+          <a href={props.wUrl}>Wikipedia Link</a>
         </div>
       </div> 
     </article>
-  )
-}
+  );
+};
 
-export default SelectedCard
+export default SelectedCard;

@@ -1,6 +1,6 @@
-import React from 'react'
+import React from 'react';
 import { shallow } from 'enzyme'
-import { mapStateToProps, mapDispatchToProps, SearchPage } from '../SearchPage'
+import { mapStateToProps, mapDispatchToProps, SearchPage } from '../SearchPage';
 import { searchRelated, addToResources } from '../../actions';
 import { mockSearchData } from '../../utilities/apiCalls/mockData'
 

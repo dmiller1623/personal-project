@@ -1,25 +1,25 @@
-import React from 'react'
-import SelectedCard from '../SelectedCard'
-import { shallow } from 'enzyme'
+import React from 'react';
+import SelectedCard from '../SelectedCard';
+import { shallow } from 'enzyme';
 
 
 describe('SelectedCard', () => {
-  let wrapper
+  let wrapper;
   it('should match the snapshot', () => {
-    let yUrl = 'kscislkcn'
-    wrapper = shallow(<SelectedCard  yUrl={yUrl}/>)
+    let yUrl = 'kscislkcn';
+    wrapper = shallow(<SelectedCard  yUrl={yUrl}/>);
 
-    expect(wrapper).toMatchSnapshot()
-  })
+    expect(wrapper).toMatchSnapshot();
+  });
 
   it('should call add resources when the add button is clicked', () => {
-    let deleteResources = jest.fn()
-    let yUrl = 'kscislkcn'
+    let deleteResources = jest.fn();
+    let yUrl = 'kscislkcn';
 
-    wrapper = shallow(<SelectedCard yUrl={yUrl} deleteResources={deleteResources}/>)
+    wrapper = shallow(<SelectedCard yUrl={yUrl} deleteResources={deleteResources}/>);
 
-    wrapper.find('img').simulate('click')
-    expect(deleteResources).toHaveBeenCalled()
-  })
+    wrapper.find('img').simulate('click');
+    expect(deleteResources).toHaveBeenCalled();
+  });
 
-})
+});
