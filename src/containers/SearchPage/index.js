@@ -26,11 +26,12 @@ export class SearchPage extends Component {
   }
 
   addResources = (resource) => {
-    let additionalResourcesNames = this.props.additionalResources.map(resource => resource.Name);
+    const { additionalResources, addToResources } = this.props;
+    let additionalResourcesNames = additionalResources.map(resource => resource.Name);
     if (additionalResourcesNames.includes(resource.Name)) {
       return;
     } else {
-      this.props.addToResources(resource);
+      addToResources(resource);
     }
   } 
 

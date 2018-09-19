@@ -8,12 +8,13 @@ import PropTypes from 'prop-types';
 export class SelectedItems extends Component{
 
   deleteResources = (resource) => {
+    const { removeResource } = this.props;
     const resourceNames = this.props.additionalResources.map(resource => resource.Name);
     if (resourceNames.includes(resource.Name)) {
       let additionalResources = this.props.additionalResources.filter(name => {
         return name.Name !== resource.Name;
       });
-      this.props.removeResource(additionalResources);
+      removeResource(additionalResources);
     } 
     return;
   }
