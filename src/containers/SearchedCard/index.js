@@ -17,7 +17,7 @@ export class SearchedCard extends Component {
   }
 
   filterResources = (resource) => {
-    const { removeResource, addResources } = this.props
+    const { removeResource, addResources } = this.props;
     const clicked = !this.state.clicked;
     this.setState({ clicked });
     const resourceNames = this.props.additionalResources.map(resource => resource.Name);
