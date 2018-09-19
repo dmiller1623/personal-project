@@ -17,6 +17,7 @@ export class SearchedCard extends Component {
   }
 
   filterResources = (resource) => {
+    const { removeResource, addResources } = this.props
     const clicked = !this.state.clicked;
     this.setState({ clicked });
     const resourceNames = this.props.additionalResources.map(resource => resource.Name);
@@ -24,12 +25,13 @@ export class SearchedCard extends Component {
       let additionalResources = this.props.additionalResources.filter(name => {
         return name.Name !== resource.Name;
       });
-      this.props.removeResource(additionalResources);
+      removeResource(additionalResources);
     } 
-    this.props.addResources(this.props);
+    addResources(this.props);
   }
 
   render() {
+    const { Type, Name, wTeaser, yUrl, wUrl } = this.props;
     return (
       <article className='searched-card'>
         <div className='card-title'>
@@ -37,26 +39,26 @@ export class SearchedCard extends Component {
             <img src={this.state.clicked ? minusSvg : addSvg} className='add-button' alt='add button svg' onClick={() => this.filterResources(this.props)}/>
           </div>
           <div className='search-heading'>
-            <h1>{this.props.Type}:</h1>
-            <h1 className='searched-card-title'>{this.props.Name}</h1>
+            <h1>{Type}:</h1>
+            <h1 className='searched-card-title'>{Name}</h1>
           </div>
         </div>
         <div className='card-info'>
           <div className='card-description'> 
-            <ShowMoreText>{this.props.wTeaser}</ShowMoreText>
+            <ShowMoreText>{wTeaser}</ShowMoreText>
           </div>
           <div className='card-links'>
             {this.props.yUrl &&
           <YouTube
             className='youtube-video'
-            videoId={this.props.yUrl.slice(39, 50)}
+            videoId={yUrl.slice(39, 50)}
             opts={{
               height: '300',
               width: '300',
               autoplay: 1
             }}
           />}
-            <a href={this.props.wUrl}>Wikipedia Link</a>
+            <a href={wUrl}>Wikipedia Link</a>
           </div>
         </div>
       </article>

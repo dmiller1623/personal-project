@@ -6,28 +6,29 @@ import YouTube from 'react-youtube';
 import PropTypes from 'prop-types';
 
 const SelectedCard = (props) => {
+  const { Name, wTeaser, yUrl, wUrl, deleteResources } = props;
   return (
     <article className='selected-card'>
       <div className='selected-card-title'>
-        <img src={minusSvg} className='minus-button' alt='delete button' onClick={() => props.deleteResources(props)}/>
-        <h1 className='searched-title'>{props.Name}</h1>
+        <img src={minusSvg} className='minus-button' alt='delete button' onClick={() => deleteResources(props)}/>
+        <h1 className='searched-title'>{Name}</h1>
       </div>
       <div className='selected-card-info'>
         <div className='selected-card-description'> 
-          <ShowMoreText>{props.wTeaser}</ShowMoreText>
+          <ShowMoreText>{wTeaser}</ShowMoreText>
         </div>
         <div className='selected-card-links'>
-          {props.yUrl &&
+          {yUrl &&
             <YouTube
               className='youtube-video'
-              videoId={props.yUrl.slice(39, 50)}
+              videoId={yUrl.slice(39, 50)}
               opts={{
                 height: '300',
                 width: '300',
                 autoplay: 1
               }}
             />}
-          <a href={props.wUrl}>Wikipedia Link</a>
+          <a href={wUrl}>Wikipedia Link</a>
         </div>
       </div> 
     </article>
