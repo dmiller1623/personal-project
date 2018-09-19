@@ -6,7 +6,7 @@ const QRCodePage = () => {
   return (
     <div className='qr-page'>
       <h1>QRCODE</h1>
-      <QRCode className='qr-code' value='http://localhost:3000/selectedResources'/>
+      <QRCode className='qr-code' value='https://outsourced.herokuapp.com/QrcodePage'/>
     </div>
   );
 };
